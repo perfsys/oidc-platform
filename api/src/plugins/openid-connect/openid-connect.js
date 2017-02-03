@@ -52,7 +52,7 @@ exports.register = function (server, options, next) {
       request: true,
       requestUri: true,
       revocation: true,
-      sessionManagement: false,
+      sessionManagement: true,
       backchannelLogout: false,
     },
     subjectTypes: ['public', 'pairwise'],

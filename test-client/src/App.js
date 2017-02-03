@@ -62,7 +62,13 @@ class App extends Component {
               <span> | </span>
               <a href="http://localhost:9000/user/register?client_id=acmf&response_type=code&scope=openid&redirect_uri=http://sso-client.dev:3000/">Register</a>
             </span>
-          ) : 'Logged In'}
+          ) : (
+            <span>
+              <a href={`http://localhost:9000/op/session/end?post_logout_redirect_uri=http://sso-client.dev:3000/&id_token_hint=${this.state.idToken}`}>Logout</a>
+              <span> | </span>
+              <a href={`http://localhost:9000/op/session/end?id_token_hint=${this.state.idToken}`}>Logout</a>
+            </span>
+          )}
         </p>
         {this.state.accessToken ? (
           <div>
