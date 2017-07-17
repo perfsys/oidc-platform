@@ -389,10 +389,21 @@ module.exports = (
           if (token) {
             const base = config('/baseUrl');
             const prevQuery = querystring.stringify(request.query);
+            const template = request.payload.template;
 
-            return renderTemplate('email/forgot-password', {
-              url: `${base}/user/reset-password?${prevQuery}&token=${token.get('token')}`,
-            });
+            if (template) {
+              return new Promise((resolve, reject) => {
+                const emailTemplate = handlebars.compile(template);
+
+                resolve(emailTemplate({
+                  url: `${base}/user/reset-password?${prevQuery}&token=${token.get('token')}`,
+                }));
+              });
+            } else {
+              return renderTemplate('email/forgot-password', {
+                url: `${base}/user/reset-password?${prevQuery}&token=${token.get('token')}`,
+              });
+            }
           }
         })
         .then(emailBody => {

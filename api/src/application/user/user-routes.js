@@ -126,6 +126,7 @@ module.exports = (service, controller, userFormData) => {
         validate : {
           payload : {
             email : Joi.string().email().required(),
+            template: Joi.string(),
           },
           query : queryValidation,
           failAction : controller.getForgotPasswordForm,
