@@ -7,8 +7,8 @@ const defaultKeystore = require('../../keystore');
 module.exports = function() {
   return new Promise((resolve, reject) => {
     if (process.env.KEYSTORE && process.env.KEYSTORE_BUCKET) {
-      logger.log(process.env.toString());
-      logger.log(s3);
+      console.log(process.env.toString());
+      console.log(s3);
       var params = {
         Bucket: process.env.KEYSTORE_BUCKET /* required */,
         Key: process.env.KEYSTORE /* required */,
