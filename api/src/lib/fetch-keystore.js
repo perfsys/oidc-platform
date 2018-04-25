@@ -1,11 +1,14 @@
+const logger = require('./logger');
 const AWS = require('aws-sdk');
+AWS.config.logger = console;
 const s3 = new AWS.S3({ apiVersion: '2006-03-01' });
 const defaultKeystore = require('../../keystore');
-const logger = require('./logger');
 
 module.exports = function() {
   return new Promise((resolve, reject) => {
     if (process.env.KEYSTORE && process.env.KEYSTORE_BUCKET) {
+      logger.log(process.env.toString());
+      logger.log(s3);
       var params = {
         Bucket: process.env.KEYSTORE_BUCKET /* required */,
         Key: process.env.KEYSTORE /* required */,
