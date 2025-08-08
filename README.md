@@ -44,3 +44,8 @@ Sessions are persisted by default, a user can manually log out by visiting `${pr
 ## Clients
 
 Clients can be registered dynamically with the `registration` endpoint defined in the OICD provider's Hapi plugin. By default this is `${prefix}/reg`. Any of the [OpenID Client Metadata](http://openid.net/specs/openid-connect-registration-1_0.html#ClientMetadata) can be supplied. The Bearer token for this request is validated against the `OIDC_INITIAL_ACCESS_TOKEN` environment variable. YOU MUST PROVIDE A STRONG TOKEN in production to prevent unauthorized clients from being added.
+
+## Sponsors
+
+[AWS Consulting & Cloud Engineering for Startups - Perfsys](https://perfsys.com)
+
